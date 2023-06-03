@@ -1,0 +1,156 @@
+.container {
+    margin-top: 20px;
+    color: var(--text-color);
+    align-self: flex-start;
+    margin-left: 32px;
+    padding-right: 36px;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    position: relative;
+    max-width: 624px;
+
+    button {
+        margin-top: 16px;
+        padding: 6.2px 16px;
+    }
+}
+
+.avatar {
+    width: 116px;
+    height: 116px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.name {
+    font-weight: 700;
+    font-size: 3.2rem;
+    line-height: 3.8rem;
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    word-break: break-word;
+    display: flex;
+    align-items: center;
+
+    svg {
+        color: #20d5ec;
+        width: 20px;
+        height: 20px;
+        margin-left: 8px;
+    }
+}
+
+.fullname {
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    text-overflow: ellipsis;
+    height: 25px;
+    overflow: hidden;
+    max-width: 450px;
+    white-space: nowrap;
+}
+
+.content {
+    margin: 20px 0;
+}
+
+.label {
+    color: rgba(22, 24, 35, 0.75);
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    display: inline-block;
+    margin: 0 16px 0 6px;
+}
+
+.number {
+    color: rgba(22, 24, 35, 1);
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.header .share-icon {
+    position: absolute;
+    top: 11px;
+    cursor: pointer;
+    right: 52px;
+    margin-top: 0;
+    padding: 0;
+}
+
+.nav-bar {
+    display: flex;
+    font-size: 1.8rem;
+    color: #16182380;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    position: relative;
+    margin-bottom: 5px;
+
+    svg {
+        font-size: 1.5rem;
+        margin-right: 4px;
+    }
+
+    p {
+        padding: 10px 32px;
+        line-height: 2.5rem;
+        cursor: pointer;
+    }
+}
+
+.bottom-line {
+    height: 2.5px;
+    background-color: rgb(22, 24, 35);
+    position: absolute;
+    bottom: 0;
+    transition: all 0.3s linear;
+}
+
+.video-container {
+    display: flex;
+    margin: 0 -8px;
+    flex-wrap: wrap;
+}
+
+.pd5 {
+    padding: 8px 8px;
+}
+
+.fl3 {
+    width: 16.6666666666667%;
+}
+
+.novideo {
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    strong {
+        font-size: 2.4rem;
+        line-height: 2.8rem;
+        font-weight: 700;
+        color: rgb(22, 24, 35);
+    }
+
+    p {
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        font-weight: 400;
+        color: rgba(22, 24, 35, 0.75);
+        margin-top: 8px;
+    }
+
+    svg {
+        opacity: 0.34;
+    }
+}

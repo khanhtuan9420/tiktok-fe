@@ -1,0 +1,36 @@
+a[href].wrapper {
+    padding: 9px 16px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-right: 12px;
+}
+
+.username {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2.2rem;
+
+    svg {
+        color: #20D5EC;
+        margin-left: 8px;
+        font-size: 1.4rem;
+    }
+}
+
+.name {
+    color: rgba(22, 24, 35, 0.5);
+    font-size: 1.4rem;
+    line-height: 2rem;
+}

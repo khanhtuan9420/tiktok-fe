@@ -1,0 +1,24 @@
+.button-wrapper {
+    position: relative;
+    button.btn-follow {
+        transition: all 0.3s ease-in-out;
+        width: 125px;
+    }
+
+    button:nth-child(1).btn-follow {
+        opacity: 0;
+    }
+    button:nth-child(1).disable-hide {
+        opacity: 1;
+    }
+
+    button:nth-child(2) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+    }
+}
+.hide {
+    opacity: 0;
+}

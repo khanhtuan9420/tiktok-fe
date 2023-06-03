@@ -1,0 +1,184 @@
+.wrapper {
+    width: 615px;
+}
+
+.video-wrapper {
+    display: flex;
+    width: 100%;
+    height: 700px;
+    padding: 20px 0;
+    color: var(--text-color);
+}
+
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header {
+    display: flex;
+}
+
+.button-wrapper {
+    position: relative;
+    button.btn-follow {
+        transition: all 0.3s ease-in-out;
+        width: 125px;
+    }
+
+    button:nth-child(1).btn-follow {
+        opacity: 0;
+    }
+    button:nth-child(1).disable-hide {
+        opacity: 1;
+    }
+
+    button:nth-child(2) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+    }
+}
+
+.content {
+    margin-left: 12px;
+    width: 410px;
+
+    a {
+        text-align: unset;
+    }
+
+    svg {
+        color: #20d5ec;
+        margin-left: 4px;
+        font-size: 1.4rem;
+    }
+}
+
+.username {
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    display: inline-block;
+}
+
+.name {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 20px;
+    display: inline-block;
+    margin-left: 4px;
+    color: rgba(22, 24, 35, 0.5);
+}
+
+.caption {
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.video {
+    height: calc(450px + (100vw - 768px) / 1152 * 200);
+    border-radius: 8px;
+}
+
+.video-section-wrapper {
+    display: flex;
+}
+
+.video-section {
+    position: relative;
+    width: 322px;
+    height: 575px;
+    margin-right: 20px;
+}
+
+.icon {
+    cursor: pointer;
+    position: absolute;
+    color: white;
+    font-size: 2rem;
+    opacity: 0;
+    transition: opacity ease-in-out 0.5s;
+}
+
+.play-icon {
+    bottom: 40px;
+    left: 30px;
+}
+
+.mute-icon {
+    bottom: 40px;
+    right: 20px;
+}
+
+.show {
+    opacity: 1;
+}
+
+.reaction {
+    align-self: flex-end;
+
+    button {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+.reaction-icon {
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+    background-color: rgba(22, 24, 35, 0.06);
+    margin: 8px 0 6px;
+    color: var(--text-color);
+}
+
+.reaction-icon.active {
+    svg {
+        color: var(--primary);
+    }
+}
+
+strong {
+    font-size: 1.2rem;
+    color: rgba(22, 24, 35, 0.75);
+}
+
+.youtube-container {
+    overflow: hidden;
+    width: 100%;
+    /* Keep it the right aspect-ratio */
+    // aspect-ratio: 16/9;
+    /* No clicking/hover effects */
+    border-radius: 8px;
+}
+
+.youtube-container iframe {
+    pointer-events: none;
+    /* Extend it beyond the viewport... */
+    width: 900%;
+    height: 100%;
+    /* ...and bring it back again */
+    margin-left: -400%;
+}
+
+.hide {
+    opacity: 0;
+}

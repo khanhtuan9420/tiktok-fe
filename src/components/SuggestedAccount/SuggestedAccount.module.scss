@@ -1,0 +1,93 @@
+.wrapper {
+    padding: 16px 8px;
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+}
+
+.label {
+    font-size: 1.4rem;
+    color: rgba(22, 24, 35, 0.75);
+    line-height: 20px;
+    margin-bottom: 8px;
+}
+
+.account-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.item-info {
+    margin-left: 12px;
+}
+
+.username {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2.2rem;
+
+    svg {
+        color: #20d5ec;
+        margin-left: 8px;
+        font-size: 1.4rem;
+    }
+}
+
+.name {
+    color: rgba(22, 24, 35, 0.5);
+    font-size: 1.4rem;
+    line-height: 2rem;
+}
+
+.see-all {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 20px;
+    padding-top: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.account-info {
+    width: 320px;
+    height: 170px;
+    padding: 20px;
+    margin-top: -8px;
+
+    .avatar {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+.account-info div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.statistical {
+    font-size: 1.7rem;
+    .number {
+        color: var(--text-color);
+        font-weight: 700;
+    }
+
+    .label-info {
+        color: #161823bf;
+        margin: 0 12px 0 6px;
+    }
+}

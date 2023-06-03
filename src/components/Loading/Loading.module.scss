@@ -1,0 +1,52 @@
+.loading {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background-color: red;
+}
+
+.round {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.round-1 {
+    animation: load1 0.7s ease-in-out infinite;
+    background-color: #f71375;
+}
+
+.round-2 {
+    animation: load2 0.7s ease-in-out infinite;
+    background-color: #37f7f6;
+}
+
+@keyframes load1 {
+    0% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(25px);
+    }
+
+    100% {
+        transform: translateX(-5px);
+    }
+}
+
+@keyframes load2 {
+    0% {
+        transform: translateX(5px);
+    }
+
+    50% {
+        transform: translateX(-25px);
+    }
+
+    100% {
+        transform: translateX(5px);
+    }
+}

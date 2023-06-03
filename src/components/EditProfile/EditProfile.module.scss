@@ -1,0 +1,332 @@
+.form-container {
+    position: fixed;
+    z-index: 28;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.edit-form {
+    position: relative;
+    overflow: hidden;
+    width: 700px;
+    height: 700px;
+    border-radius: 8px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 375px;
+        margin: 0 0 16px 0 !important;
+
+        span {
+            margin-right: auto;
+            margin-left: 0 !important;
+        }
+
+        &:hover {
+            background-color: #fff;
+        }
+    }
+}
+
+.login-form:has(input:placeholder-shown) .submit {
+    background-color: rgba(22, 24, 35, 0.06);
+    color: rgba(22, 24, 35, 0.34);
+    pointer-events: none;
+}
+
+.login-form button.submit {
+    background-color: var(--primary);
+    color: #fff;
+    span {
+        margin-right: unset;
+    }
+}
+
+.form-title {
+    font-size: 3.2rem;
+    margin: 36px 0 16px;
+}
+
+.form-footer {
+    height: 64px;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-left: 6px;
+        cursor: pointer;
+        color: var(--primary);
+    }
+}
+
+.login-form .login-control-btn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.login-form .close-btn {
+    background-color: rgba(22, 24, 35, 0.03);
+    top: 18px;
+    right: 18px;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.login-form .login-back-btn {
+    top: 18px;
+    left: 18px;
+}
+
+.hide-wrapper {
+    overflow: hidden;
+    animation: hide 0.5s ease-in-out forwards;
+}
+
+.hide-content {
+    overflow: hidden;
+    animation: hideVer2 0.5s ease-in-out forwards;
+}
+
+.toggle-hide-wrapper {
+    overflow: hidden;
+    animation: toggleHide 0.5s ease-in-out forwards;
+}
+
+.toggle-hide-content {
+    overflow: hidden;
+    transform-origin: center center;
+    animation: toggleHideVer2 0.5s ease-in-out forwards;
+}
+
+@keyframes hide {
+    0% {
+        width: 100vw;
+        height: 100vh;
+        opacity: 1;
+    }
+
+    99% {
+        width: 100vw;
+        height: 100vh;
+        opacity: 0;
+    }
+
+    100% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes hideVer2 {
+    0% {
+        width: 700px;
+        height: 700px;
+        opacity: 1;
+    }
+
+    100% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes toggleHide {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    1% {
+        width: 100vw;
+        height: 100vh;
+        opacity: 0;
+    }
+
+    100% {
+        width: 100vw;
+        height: 100vh;
+        opacity: 1;
+    }
+}
+
+@keyframes toggleHideVer2 {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.edit-form-header {
+    width: 100%;
+    font-weight: 600;
+    font-size: 2.4rem;
+    padding: 24px 24px 12px;
+    line-height: 3.6rem;
+    color: rgb(22, 24, 35);
+    border-bottom: 0.5px solid rgba(22, 24, 35, 0.2);
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+
+    svg {
+        width: 24px;
+        height: 24px;
+        opacity: 0.75;
+        cursor: pointer;
+    }
+}
+
+.content-container {
+    width: 700px;
+    padding: 8px 24px 0px;
+}
+
+.content-row {
+    padding: 16px 0px;
+    display: flex;
+    border-bottom: 0.5px solid rgba(22, 24, 35, 0.12);
+}
+
+.col-title {
+    font-weight: 600;
+    line-height: 2.4rem;
+    font-size: 1.6rem;
+    width: 120px;
+    margin-right: 24px;
+}
+
+.avatar-container {
+    position: relative;
+    height: 96px;
+}
+
+.avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 128px;
+    cursor: pointer;
+}
+
+.pen {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(208, 208, 211);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0px;
+    margin-left: 192px;
+}
+
+.edit-input {
+    width: 360px;
+    height: 38px;
+    border-radius: 4px;
+    background: rgba(22, 24, 35, 0.06);
+    caret-color: rgb(254, 44, 85);
+    font-size: 16px;
+    color: rgb(22, 24, 35);
+    line-height: 24px;
+    outline: none;
+    border: none;
+    padding: 7px 12px;
+}
+
+.desc {
+    font-size: 12px;
+    color: rgba(22, 24, 35, 0.75);
+    line-height: 18px;
+    margin-top: 8px;
+    width: 360px;
+    max-width: 460px;
+    overflow: hidden;
+}
+
+.resume {
+    width: 360px;
+    border-radius: 4px;
+    background: rgba(22, 24, 35, 0.06);
+    caret-color: rgb(254, 44, 85);
+    font-size: 16px;
+    color: rgb(22, 24, 35);
+    line-height: 24px;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    height: 100px;
+    padding: 12px;
+    resize: none;
+    margin-bottom: -8px;
+}
+
+.edit-footer {
+    height: 86px;
+    display: flex;
+    padding: 0px 24px;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    border-top: 0.5px solid rgba(22, 24, 35, 0.2);
+    -webkit-box-align: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+}
+
+.no-border {
+    border: none;
+}
+
+.avatar-input {
+    width: 0;
+    height: 0;
+}

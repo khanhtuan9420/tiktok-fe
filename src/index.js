@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import App from '~/App';
 import reportWebVitals from './reportWebVitals';
+import GlobalStyles from './components/GlobalStyles';
+import Provider from './store/Provider';
+import EditProfile from './components/EditProfile';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    // <React.StrictMode>
+    <GlobalStyles>
+        <Provider>
+            <App />
+            {/* <EditProfile /> */}
+        </Provider>
+    </GlobalStyles>
+    // </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function

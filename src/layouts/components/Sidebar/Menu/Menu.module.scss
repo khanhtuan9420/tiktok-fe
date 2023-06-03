@@ -1,0 +1,31 @@
+.menu {
+    border-bottom: 1px solid rgba(22, 24, 35, .12);
+    padding-bottom: 8px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 8px 8px 0px;
+    height: 48px;
+    border-radius: 4px;
+    transition: background-color ease-in-out 200ms;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, .03);
+    }
+}
+
+.title {
+    margin-left: 8px;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.active {
+    color: rgba(254, 44, 85, 1);
+
+    svg {
+        fill: rgba(254, 44, 85, 1);
+    }
+}

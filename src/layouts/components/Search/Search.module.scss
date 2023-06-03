@@ -1,0 +1,101 @@
+.search,
+.search-results {
+    width: 361px;
+}
+
+.search {
+    width: 500px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    padding: 12px 0px 12px 16px;
+    background-color: rgb(22 24 35 / 6%);
+    border-radius: 92px;
+    position: relative;
+    overflow: hidden;
+    border: 1.5px solid rgba(22, 24, 35, 0);
+    &:focus-within:has(input:focus) {
+        border: 1.5px solid rgba(22, 24, 35, 0.2);
+    }
+}
+
+.search-title {
+    padding: 5px 12px;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 600;
+    color: rgba(22, 24, 35, 0.5);
+}
+
+.search-input {
+    height: 100%;
+    width: 431px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    caret-color: rgba(254, 44, 85, 1);
+    line-height: 2.2rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: 'Proxima Nova', sans-serif;
+    padding-right: calc(var(--search-btn-width));
+}
+
+.search-input:not(:placeholder-shown) ~ .search-btn {
+    color: rgba(22, 24, 35, 0.75);
+}
+
+.close-btn,
+.loading {
+    position: absolute;
+    right: var(--search-btn-width);
+    transform: translate(-100%, -50%);
+    top: 50%;
+    color: rgba(22, 24, 35, 0.34);
+}
+
+.loading {
+    animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+    0% {
+        transform: translate(-100%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-100%, -50%) rotate(360deg);
+    }
+}
+
+.search-btn {
+    height: 46px;
+    width: var(--search-btn-width);
+    border: none;
+    font-size: 2.4rem;
+    line-height: 0;
+    padding: 11px 16px 11px 12px;
+    position: relative;
+    color: rgba(22, 24, 35, 0.34);
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+
+    &::before {
+        background-color: rgba(22, 24, 35, 0.12);
+        display: block;
+        width: 2px;
+        height: 28px;
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

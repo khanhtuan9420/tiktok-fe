@@ -52,6 +52,7 @@ function Comment({ videoId, setComments, allowComment, ownerId }) {
     useEffect(() => {
         const fetchApi = async () => {
             const res = await commentService.getComments(videoId)
+            console.log(res)
             setMess(res)
         }
         setAllowScroll(prev => {

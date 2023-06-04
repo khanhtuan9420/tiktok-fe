@@ -18,6 +18,7 @@ function VideoSection({ data }) {
     const { likedAndComments, setLikedAndComments } = useContext(Context).likedAndComments
     const [play, setPlay] = useState(false)
     const [forcePause, setForcePause] = useState(false)
+    const { reloadFeed, setReloadFeed } = useContext(Context).reloadFeed
     const [show, setShow] = useState(false);
     const [isLiked, setIsLiked] = useState(data.data.isLiked)
     const [comments, setComments] = useState(data.data.comment)
@@ -148,8 +149,18 @@ function VideoSection({ data }) {
         setPlay(inView)
         if (playerRef.current) playerRef.current.seekTo(0, 'fraction')
     }, [inView])
+    useEffect(() => {
+        if (!reloadFeed) setComments(data.data.comment)
+    }, [reloadFeed, data.data.comment])
+    useEffect(() => {
+        if (!reloadFeed) setLikes(data.data.likes)
+    }, [reloadFeed, data.data.likes])
+    useEffect(() => {
+        if (!reloadFeed) setIsLiked(data.data.isLiked)
+    }, [reloadFeed, data.data.isLiked])
 
     useEffect(() => {
+        // console.log(likedAndComments)
         setComments(prev => {
             for (let i = 0; i < likedAndComments.length; i++) {
                 if (likedAndComments[i].videoId === data.data.videoId)
@@ -159,7 +170,7 @@ function VideoSection({ data }) {
         })
         for (let i = 0; i < likedAndComments.length; i++) {
             if (likedAndComments[i].videoId === data.data.videoId && likedAndComments[i].likes != null) {
-                console.log(likedAndComments[i])
+                // console.log(likedAndComments[i])
                 setIsLiked(likedAndComments[i].isLiked)
                 setLikes(likedAndComments[i].likes)
                 break;
@@ -167,6 +178,7 @@ function VideoSection({ data }) {
         }
 
     }, [likedAndComments])
+
 
     return (
         <div ref={ref} className={cx('video-section-wrapper')} onClick={handleSaveOffset}>

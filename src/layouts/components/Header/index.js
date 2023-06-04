@@ -53,8 +53,9 @@ function Header() {
     const navigate = useNavigate()
     const logout = useLogout();
     const { currentUser, setUser } = useContext(Context).user;
-    const { setReloadFeed } = useContext(Context).reloadFeed
+    const { reloadFeed, setReloadFeed } = useContext(Context).reloadFeed
     const { showLogin, setShowLogin } = useContext(Context).login
+    const { likedAndComments, setLikedAndComments } = useContext(Context).likedAndComments
     const [toLocation, setToLocation] = useState('');
     const signOut = async () => {
         await logout();
@@ -97,6 +98,10 @@ function Header() {
             setReloadFeed(true)
         }
     }
+
+    // useEffect(() => {
+    //     setLikedAndComments([])
+    // }, [reloadFeed])
 
     return (
         <header className={cx('wrapper')}>

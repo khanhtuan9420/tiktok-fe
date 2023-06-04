@@ -161,6 +161,7 @@ function VideoSection({ data }) {
 
     useEffect(() => {
         // console.log(likedAndComments)
+        // console.log(likedAndComments)
         setComments(prev => {
             for (let i = 0; i < likedAndComments.length; i++) {
                 if (likedAndComments[i].videoId === data.data.videoId)

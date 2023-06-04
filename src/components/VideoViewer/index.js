@@ -160,7 +160,7 @@ function VideoViewer() {
                             return [...prev]
                         }
                     }
-                    return [...prev, { videoId: videoId.videoId, likes: likes + 1, isLiked: true }]
+                    return [...prev, { videoId: videoId.videoId, likes: likes + 1, isLiked: true, comments: comments }]
                 })
                 fetchApi()
             } else {
@@ -177,7 +177,7 @@ function VideoViewer() {
                             return [...prev]
                         }
                     }
-                    return [...prev, { videoId: videoId.videoId, likes: likes - 1, isLiked: false }]
+                    return [...prev, { videoId: videoId.videoId, likes: likes - 1, isLiked: false, comments: comments }]
                 })
                 fetchApi()
             }

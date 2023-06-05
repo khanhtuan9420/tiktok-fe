@@ -24,15 +24,18 @@ function Home() {
     const { followIds, setFollowIds } = useContext(Context).followIds
     const [checkKeyDown, setCheckKeyDown] = useState(false)
     const [page, setPage] = useState(0)
+    const [isNoMoreFeed, setIsNoMoreFeed] = useState(false)
     const [increPage, setIncrePage] = useState(true)
     const navigate = useNavigate()
     const divRef = useRef()
 
     useEffect(() => {
-        console.log(page)
         const fetchApi = async () => {
             setIsLoading(true)
             let res = await feedService.moreFeed(homeState.previousIds || [], currentUser.id)
+            if (res.length < 1) setIsNoMoreFeed(true)
+            // return 0
+            console.log(res)
             // setIsLoading(false)
             const previousIds = res.map((e) => e.vId)
             setTimeout(() => {
@@ -54,7 +57,7 @@ function Home() {
                 })
             }, 1000)
         }
-        if (page > 0) {
+        if (page > 0 && !isNoMoreFeed) {
             setIsLoading(true)
             if (!isRequestSent) {
                 fetchApi()
@@ -105,7 +108,6 @@ function Home() {
     const scrollEvent = useCallback(() => {
         const doc = document.documentElement;
         if (Math.ceil(doc.scrollTop + doc.clientHeight) >= doc.scrollHeight) {
-            console.log('haha')
             // handleKey({ keyCode: 40 })
             setPage(prev => prev + 1)
         }
@@ -179,6 +181,7 @@ function Home() {
 
     useEffect(() => {
         if (reloadFeed) {
+            setIsNoMoreFeed(false)
             const fetchApi = async () => {
                 let res, previousIds
                 try {

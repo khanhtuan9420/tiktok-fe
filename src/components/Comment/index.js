@@ -12,7 +12,7 @@ import Login from "../Login";
 
 
 
-const host = "https://khanhtuan-tiktok-be.onrender.com";
+const host = "localhost:5500";
 
 const cx = classNames.bind(styles)
 
@@ -51,7 +51,6 @@ function Comment({ videoId, setComments, allowComment, ownerId }) {
     useEffect(() => {
         const fetchApi = async () => {
             const res = await commentService.getComments(videoId)
-            console.log(res)
             setMess(res)
         }
         setAllowScroll(prev => {

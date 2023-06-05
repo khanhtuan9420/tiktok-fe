@@ -11,9 +11,6 @@ import { useParams } from "react-router-dom";
 import Login from "../Login";
 
 
-
-const host = "localhost:5500";
-
 const cx = classNames.bind(styles)
 
 function Comment({ videoId, setComments, allowComment, ownerId }) {
@@ -31,7 +28,7 @@ function Comment({ videoId, setComments, allowComment, ownerId }) {
 
 
     useEffect(() => {
-        socketRef.current = socketIOClient(host)
+        socketRef.current = socketIOClient(process.env.SOCKET_URL)
         socketRef.current.on('getId', data => {
             setId(data)
         })

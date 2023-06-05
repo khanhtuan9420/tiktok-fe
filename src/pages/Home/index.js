@@ -65,7 +65,7 @@ function Home() {
             }, 3000)
             setTimeout(() => {
                 setIsLoading(false)
-            }, 1200)
+            }, 2000)
             setIncrePage(true)
         }
     }, [page])

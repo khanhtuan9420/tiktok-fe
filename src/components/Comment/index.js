@@ -12,7 +12,7 @@ import Login from "../Login";
 
 
 
-const host = "https://khanhtuan-tiktok-be.onrender.com:5501";
+const host = "https://khanhtuan-tiktok-be.onrender.com";
 
 const cx = classNames.bind(styles)
 

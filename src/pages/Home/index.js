@@ -35,7 +35,7 @@ function Home() {
             let res = await feedService.moreFeed(homeState.previousIds || [], currentUser.id)
             if (res.length < 1) setIsNoMoreFeed(true)
             // return 0
-            console.log(res)
+            // console.log(res)
             // setIsLoading(false)
             const previousIds = res.map((e) => e.vId)
             setTimeout(() => {
@@ -44,7 +44,8 @@ function Home() {
                         return { ...prev, feed: [...prev.feed, ...res], previousIds: [...prev.previousIds, ...previousIds] }
                     })
                     setFeed(prev => {
-                        divRef.current.style.height = `${res.length * 700}px`
+                        console.log(divRef.current.clientHeight + res.length * 700)
+                        divRef.current.style.height = `${divRef.current.clientHeight + res.length * 700}px`
                         return [...prev, ...res];
                     })
                 }

@@ -12,7 +12,7 @@ import Login from "../Login";
 
 
 
-const host = "http://localhost:5501";
+const host = "https://khanhtuan-tiktok-be.onrender.com";
 
 const cx = classNames.bind(styles)
 
@@ -31,7 +31,9 @@ function Comment({ videoId, setComments, allowComment, ownerId }) {
 
 
     useEffect(() => {
-        socketRef.current = socketIOClient.connect(host)
+        socketRef.current = socketIOClient(host, {
+            transports: ['websocket']
+        })
 
         socketRef.current.on('getId', data => {
             setId(data)

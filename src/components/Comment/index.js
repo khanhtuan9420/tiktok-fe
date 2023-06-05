@@ -10,7 +10,6 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { useParams } from "react-router-dom";
 import Login from "../Login";
 
-
 const cx = classNames.bind(styles)
 
 function Comment({ videoId, setComments, allowComment, ownerId }) {
@@ -28,7 +27,8 @@ function Comment({ videoId, setComments, allowComment, ownerId }) {
 
 
     useEffect(() => {
-        socketRef.current = socketIOClient(process.env.SOCKET_URL)
+        console.log(process.env)
+        socketRef.current = socketIOClient(process.env.REACT_APP_SOCKET_URL)
         socketRef.current.on('getId', data => {
             setId(data)
         })

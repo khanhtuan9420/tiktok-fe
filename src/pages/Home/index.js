@@ -31,12 +31,8 @@ function Home() {
 
     useEffect(() => {
         const fetchApi = async () => {
-            setIsLoading(true)
             let res = await feedService.moreFeed(homeState.previousIds || [], currentUser.id)
             if (res.length < 1) setIsNoMoreFeed(true)
-            // return 0
-            // console.log(res)
-            // setIsLoading(false)
             const previousIds = res.map((e) => e.vId)
             setTimeout(() => {
                 if (homeState.feed) {

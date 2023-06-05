@@ -32,7 +32,6 @@ function Comment({ videoId, setComments, allowComment, ownerId }) {
 
     useEffect(() => {
         socketRef.current = socketIOClient(host, {
-            transports: ['websocket'],
             withCredentials: true
         })
 

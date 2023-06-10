@@ -12,14 +12,15 @@ import { useNavigate } from "react-router-dom";
 const cx = classNames.bind(styles)
 const loginFormState = {
     HIDE: 0,
-    LOGIN: 1,
-    SIGNUP: 2,
-    LOGIN_NORMAL: 3,
-    SIGNUP_NORMAL: 4
+    SHOW: 1,
+    LOGIN: 2,
+    SIGNUP: 3,
+    LOGIN_NORMAL: 4,
+    SIGNUP_NORMAL: 5
 }
 function Login({ setShowLoginState, toLocation = '' }) {
     const [animation, setAnimation] = useState(false)
-    const [showLogin, setShowLogin] = useState(loginFormState.LOGIN)
+    const [showLogin, setShowLogin] = useState(loginFormState.SHOW)
     const [inputType, setInputType] = useState('password')
     const [fullName, setFullName] = useState('');
     const [username, setUsername] = useState('');
@@ -109,17 +110,22 @@ function Login({ setShowLoginState, toLocation = '' }) {
 
     useEffect(() => {
         setError("")
+        if (showLogin === loginFormState.SHOW) {
+            setTimeout(() => {
+                setShowLogin(loginFormState.LOGIN)
+            }, 300)
+        }
     }, [showLogin])
 
     return (
         <div className={cx('form-container', {
             hide: animation,
-            ["toggle-hide-wrapper"]: showLogin === loginFormState.LOGIN,
+            ["toggle-hide-wrapper"]: showLogin === loginFormState.SHOW,
             ["hide-wrapper"]: showLogin === loginFormState.HIDE,
         })}>
             <form action='/' method='POST' onSubmit={handleSubmit} className={cx('login-form', {
                 hide: animation,
-                ["toggle-hide-content"]: showLogin === loginFormState.LOGIN,
+                ["toggle-hide-content"]: showLogin === loginFormState.SHOW,
                 ["hide-content"]: showLogin === loginFormState.HIDE,
             })}>
                 {

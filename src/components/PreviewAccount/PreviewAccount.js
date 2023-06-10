@@ -7,11 +7,13 @@ import imgs from '~/assets/images';
 import Button from '../Button';
 import { Wrapper as PopperWrapper } from '../Popper';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import FollowBtn from '../FollowBtn';
+import Context from '~/store/Context';
 
 const cx = classNames.bind(styles);
 function PreviewAccount({ children, data, parent }) {
+    const { currentUser } = useContext(Context).user
     return (
         <div>
             <Tippy
@@ -24,36 +26,42 @@ function PreviewAccount({ children, data, parent }) {
                 offset={[0, -20]}
                 interactive
                 render={(attrs) => (
-                    <div className={cx('content')} tabIndex="-1" {...attrs}>
-                        <PopperWrapper>
-                            <div className={cx('account-info')}>
-                                <div>
-                                    <Link to={`/profile/${data.data.nickname}`}>
-                                        <img
-                                            className={cx('avatar')}
-                                            src={data.data.avatar}
-                                            alt=""
-                                        />
-                                    </Link>
-                                    {/* <Button outline size='small' primary>Follow</Button> */}
-                                    <FollowBtn data={data} />
+                    <>
+                        {
+                            currentUser.nickname === data.data.nickname ?
+                                <></> :
+                                <div className={cx('content')} tabIndex="-1" {...attrs}>
+                                    <PopperWrapper>
+                                        <div className={cx('account-info')}>
+                                            <div>
+                                                <Link to={`/profile/${data.data.nickname}`}>
+                                                    <img
+                                                        className={cx('avatar')}
+                                                        src={data.data.avatar}
+                                                        alt=""
+                                                    />
+                                                </Link>
+                                                {/* <Button outline size='small' primary>Follow</Button> */}
+                                                <FollowBtn data={data} />
+                                            </div>
+                                            <Link to={`/profile/${data.data.nickname}`}>
+                                                <p className={cx('username')}>
+                                                    <strong>{data.data.nickname}</strong>
+                                                    {data.data.tick === 1 && <FontAwesomeIcon icon={faCheckCircle} />}
+                                                </p>
+                                                <p className={cx('name')}>{data.data["full_name"]}</p>
+                                            </Link>
+                                            <p className={cx('statistical')}>
+                                                <span className={cx('number')}>6.7M</span>
+                                                <span className={cx('label-info')}>Follower</span>
+                                                <span className={cx('number')}>252.3M</span>
+                                                <span className={cx('label-info')}>Thích</span>
+                                            </p>
+                                        </div>
+                                    </PopperWrapper>
                                 </div>
-                                <Link to={`/profile/${data.data.nickname}`}>
-                                    <p className={cx('username')}>
-                                        <strong>{data.data.nickname}</strong>
-                                        {data.data.tick === 1 && <FontAwesomeIcon icon={faCheckCircle} />}
-                                    </p>
-                                    <p className={cx('name')}>{data.data["full_name"]}</p>
-                                </Link>
-                                <p className={cx('statistical')}>
-                                    <span className={cx('number')}>6.7M</span>
-                                    <span className={cx('label-info')}>Follower</span>
-                                    <span className={cx('number')}>252.3M</span>
-                                    <span className={cx('label-info')}>Thích</span>
-                                </p>
-                            </div>
-                        </PopperWrapper>
-                    </div>
+                        }
+                    </>
                 )}
             >
                 {children}

@@ -354,7 +354,7 @@ function VideoViewer() {
                     <TikTokIconVer2 />
                 </button>
                 {
-                    ((locationState?.listVideo && locationState.index !== locationState.listVideo.length - 1) || locationState.path == '/') &&
+                    ((locationState?.listVideo && locationState.index !== locationState.listVideo.length - 1) || (!!locationState && locationState.path === '/')) &&
                     <button onClick={switchDown} className={cx('btn', 'down-btn')}>
                         <FontAwesomeIcon icon={faAngleDown} />
                     </button>
@@ -406,15 +406,17 @@ function VideoViewer() {
             </section>
             <section className={cx('chat-section')}>
                 <header className={cx('header')}>
-                    <Link>
-                        <div className={cx('header-content')}>
-                            <img className={cx('avatar')} src={data.avatar}></img>
-                            <div>
-                                <p className={cx('nickname')}>{data.nickname}</p>
-                                <p className={cx('full-name')}>{data["full_name"]}</p>
+                    <PreviewAccount data={{ data: data }}>
+                        <Link>
+                            <div className={cx('header-content')}>
+                                <img className={cx('avatar')} src={data.avatar}></img>
+                                <div>
+                                    <p className={cx('nickname')}>{data.nickname}</p>
+                                    <p className={cx('full-name')}>{data["full_name"]}</p>
+                                </div>
                             </div>
-                        </div>
-                    </Link>
+                        </Link>
+                    </PreviewAccount>
                     {/* <Button width={"106px"} outline size="small">Follow</Button> */}
                     {
                         currentUser.id === data.id ?

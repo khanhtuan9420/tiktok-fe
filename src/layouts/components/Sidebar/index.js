@@ -23,11 +23,11 @@ function Sidebar({ divRef }) {
                     normal: <HomeIcon />,
                     active: <HomeActiveIcon />
                 }} state={{ path: window.location.pathname }} />
-                <MenuItem title='Đang Follow' to={config.routes.follow} icon={{
+                <MenuItem disabled={true} title='Đang Follow' to={config.routes.follow} icon={{
                     normal: <UsersIcon />,
                     active: <UsersActiveIcon />
                 }} state={{ path: window.location.pathname }} />
-                <MenuItem title='LIVE' to={config.routes.live} icon={{
+                <MenuItem disabled={true} title='LIVE' to={config.routes.live} icon={{
                     normal: <LiveIcon />,
                     active: <LiveActiveIcon />
                 }} state={{ path: window.location.pathname }} />

@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { useParams } from "react-router-dom";
 import Login from "../Login";
+import PreviewAccount from "../PreviewAccount/PreviewAccount";
 
 const cx = classNames.bind(styles)
 
@@ -110,9 +111,13 @@ function Comment({ videoId, setComments, allowComment, ownerId }) {
     const renderMess = () => {
         return mess.map((m, index) =>
             <div key={index} className={cx('comment-wrapper')}>
-                <img className={cx('avatar')} src={m.avatar} />
+                <PreviewAccount data={{ data: m }}>
+                    <img className={cx('avatar')} src={m.avatar} />
+                </PreviewAccount>
                 <div className={cx('comment-content')}>
-                    <strong className={cx('nickname')}>{m.nickname}</strong>
+                    <PreviewAccount data={{ data: m }}>
+                        <strong className={cx('nickname')}>{m.nickname}</strong>
+                    </PreviewAccount>
                     <p className={cx('name')}>{m.content}</p>
                     <p className={cx('time-and-reply')}>
                         <span className={cx('time')}>

@@ -41,7 +41,7 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
         title: 'Phản hồi và trợ giúp',
-        to: 'https://google.com'
+        // to: 'https://google.com'
     },
     {
         icon: <FontAwesomeIcon icon={faKeyboard} />,
@@ -114,11 +114,14 @@ function Header() {
 
                 <div className={cx('action')}>
                     {currentUser?.nickname ? (
-                        <Tippy delay={[0, 200]} content="Upload video" placement='bottom'>
-                            <button onClick={() => navigate('/upload')} className={cx('upload-btn')}>
-                                <UploadIcon />
-                            </button>
-                        </Tippy>
+                        // <Tippy delay={[0, 200]} content="Upload video" placement='bottom'>
+                        //     <button onClick={() => navigate('/upload')} className={cx('upload-btn')}>
+                        //         <UploadIcon />
+                        //     </button>
+                        // </Tippy>
+                        <Button onClick={() => navigate('/upload')} className={cx('upload-btn')} outline_1 leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                            Tải lên
+                        </Button>
                     ) : (
                         <>
                             <Button onClick={handleUploadLogin} outline_1 leftIcon={<FontAwesomeIcon icon={faPlus} />}>

@@ -6,9 +6,9 @@ import styles from './Menu.module.scss';
 
 const cx = classNames.bind(styles);
 
-function MenuItem({ title, to, icon, state = {} }) {
+function MenuItem({ title, to, icon, state = {}, disabled }) {
     return (
-        <NavLink className={(a) => cx('menu-item', { active: a.isActive })} to={to} state={state}>
+        <NavLink style={disabled ? { pointerEvents: "none", opacity: "0.4", userSelect: "none" } : {}} className={(a) => cx('menu-item', { active: a.isActive })} to={to} state={state}>
             {({ isActive }) => {
                 let _icon = isActive ? icon.active : icon.normal
                 return (
